@@ -1,0 +1,61 @@
+API Reference: KoNormalizationProject
+The KoNormalizationProject class provides a simple yet powerful interface for mapping Korean slang, abbreviations, or specific terms to English translations using regular expressions.
+
+Class: KoNormalizationProject
+Python
+class KoNormalizationProject(mapping_path='mapping.json')
+Parameters:
+mapping_path (str, optional): The file path to the JSON mapping file. Defaults to 'mapping.json'.
+
+Methods
+normalize(text)
+Replaces all identified Korean keys in the input string with their corresponding English values.
+
+Parameters:
+
+text (str): The raw Korean text to be normalized.
+
+Returns:
+
+str: The processed string with translated English terms.
+
+Logic: It uses a compiled regex pattern for high-performance substitution. It prioritizes longer strings first to prevent partial matching (e.g., matching "열공중" before "열공").
+
+add_word(ko, en)
+Dynamically adds a new word pair to the mapping and updates the local JSON file.
+
+Parameters:
+
+ko (str): The Korean term (key).
+
+Parameters:
+
+en (str): The English translation (value).
+
+Side Effects:
+
+Automatically calls _save_mapping() to persist data.
+
+Re-compiles the regex pattern to include the new word.
+
+Internal Utility Methods
+Note: These methods are intended for internal use but are documented for developers who wish to extend the class.
+
+_load_mapping()
+Loads the mapping dictionary from the specified JSON path. If the file does not exist, it initializes with a default set of words.
+
+_compile_pattern()
+Transforms the dictionary keys into a single, optimized regular expression pattern (key1|key2|key3).
+
+_save_mapping()
+Writes the current word_map dictionary back to the mapping_path in a human-readable JSON format.
+
+Data Structure (mapping.json)
+The project relies on a simple JSON structure. You can manually edit this file as well:
+
+JSON
+{
+  "열공": "hard study",
+  "가즈아": "let's go",
+  "킹받네": "so annoying"
+}
