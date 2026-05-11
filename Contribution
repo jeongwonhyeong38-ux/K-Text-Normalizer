@@ -1,0 +1,48 @@
+Contributing to KoNormalizationProject
+First off, thank you for considering contributing to this project! It's people like you who make open-source a great place to learn and build.
+
+How Can I Contribute?
+1. Adding New Word Mappings
+The most helpful way to contribute is by expanding our mapping.json. If you find common Korean slang or abbreviations that are missing:
+
+Open an Issue with the title [Word Suggestion].
+
+Provide the Korean word and the most appropriate English translation.
+
+2. Reporting Bugs
+If you find a bug (e.g., a word is replaced incorrectly due to regex conflicts):
+
+Check the existing Issues to see if it has already been reported.
+
+If not, open a new Issue and include:
+
+The input text you used.
+
+The expected output vs. the actual output.
+
+3. Code Improvements
+We are always looking for ways to optimize our normalization logic!
+
+Performance: Improving regex compilation speed.
+
+Features: Adding support for context-aware translation or batch processing.
+
+Pull Request (PR) Process
+Fork the repository and create your branch from main.
+
+Add your changes:
+
+If you added a word, make sure it's also added to the mapping.json within your code test.
+
+If you modified the code, ensure the normalize() method still passes basic tests.
+
+Commit your changes with a clear message (e.g., feat: add slang '알잘딱깔센' to mapping).
+
+Push to your fork and submit a Pull Request.
+
+Style Guide
+Keep the mapping.json keys sorted (if possible) for better readability.
+
+Follow PEP 8 for Python code.
+
+Ensure all new features are documented in the README or docs/.
